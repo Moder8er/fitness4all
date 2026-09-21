@@ -1,0 +1,21 @@
+YAML
+backend:
+  name: git-gateway
+  branch: main # change to 'master' if your repo default branch is named master
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    folder: "articles"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "select", options: ["HYROX", "CrossFit", "Gym"] }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
