@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Fitness 4 All</title>
+    <style>
+        :root {
+            --bg-dark: #0A111E;
+            --card-bg: #132238;
+            --accent-green: #00FF66;
+            --accent-blue: #00A3FF;
+            --text-main: #FFFFFF;
+            --text-muted: #94A3B8;
+            --border: #1E3A5F;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0; padding: 0;
+            line-height: 1.6;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        header { border-bottom: 1px solid var(--border); padding: 15px 0; background-color: rgba(10, 17, 30, 0.9); }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 900; color: var(--accent-green); text-decoration: none; }
+        .logo span { color: var(--accent-blue); }
+
+        .hamburger-btn { background: none; border: none; color: var(--text-main); font-size: 1.8rem; cursor: pointer; padding: 0; }
+        .side-drawer { position: fixed; top: 0; right: -300px; width: 260px; height: 100%; background-color: var(--card-bg); border-left: 1px solid var(--border); box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5); z-index: 1000; display: flex; flex-direction: column; padding: 25px 20px; transition: right 0.3s ease-in-out; box-sizing: border-box; }
+        .side-drawer.open { right: 0; }
+        .drawer-header { display: flex; justify-content: flex-end; }
+        .close-btn { background: none; border: none; color: var(--text-muted); font-size: 2rem; cursor: pointer; padding: 0; }
+        .close-btn:hover { color: var(--accent-green); }
+        .drawer-nav { display: flex; flex-direction: column; gap: 20px; margin-top: 30px; }
+        .drawer-nav a { color: var(--text-main); text-decoration: none; font-size: 1.2rem; font-weight: 700; transition: color 0.2s; }
+        .drawer-nav a:hover, .drawer-nav a.active { color: var(--accent-green); }
+        .drawer-footer { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border); }
+        .lang-select { background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border); padding: 6px 10px; border-radius: 4px; cursor: pointer; width: 100%; }
+        .drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); display: none; z-index: 999; }
+        .drawer-overlay.active { display: block; }
+
+        .content-box { background: var(--card-bg); border: 1px solid var(--border); padding: 35px; border-radius: 12px; margin: 30px 0 50px 0; }
+        h2 { color: var(--accent-green); margin-top: 25px; font-size: 1.2rem; }
+        p, li { color: var(--text-muted); font-size: 0.95rem; }
+        ul { padding-left: 20px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="./index.html" class="logo">FITNESS <span>4 ALL</span></a>
+            <button class="hamburger-btn" onclick="toggleMenu()" aria-label="Open Menu">☰</button>
+        </div>
+    </header>
+
+    <div class="side-drawer" id="sideDrawer">
+        <div class="drawer-header">
+            <button class="close-btn" onclick="toggleMenu()">&times;</button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="./index.html" data-key="nav-home">Home</a>
+            <a href="./articles.html" data-key="nav-articles">Articles & News</a>
+            <a href="./recipes.html" data-key="nav-recipes">Healthy Recipes</a>
+            <a href="./calculators.html" data-key="nav-calc">Calculators</a>
+            <a href="./contact.html" data-key="nav-contact">Contact</a>
+            <a href="./privacy.html" class="active" data-key="nav-privacy">Privacy Policy</a>
+        </nav>
+        <div class="drawer-footer">
+            <select class="lang-select" onchange="switchLanguage(this.value)">
+                <option value="en">EN</option>
+                <option value="pt">PT</option>
+            </select>
+        </div>
+    </div>
+    <div class="drawer-overlay" id="drawerOverlay" onclick="toggleMenu()"></div>
+
+    <main class="container">
+        <h1 style="margin-top: 40px;" data-key="title">Privacy Policy</h1>
+        
+        <div class="content-box">
+            <p><strong data-key="effective-date">Last Updated: August 2026</strong></p>
+
+            <h2 data-key="h-intro">1. Introduction</h2>
+            <p data-key="p-intro">Welcome to Fitness 4 All. This website is a personal fitness blog focused on HYROX, CrossFit, and strength training content. We respect your privacy and are committed to protecting any personal data you share with us.</p>
+
+            <h2 data-key="h-collect">2. Information We Collect</h2>
+            <ul>
+                <li data-key="li-1"><strong>Contact Forms:</strong> When you send a message through our Contact page, we collect your name, email address, and message details solely to respond to your inquiry.</li>
+                <li data-key="li-2"><strong>Comments:</strong> When you post a comment on an article, we display your chosen display name and comment text publicly.</li>
+            </ul>
+
+            <h2 data-key="h-cookies">3. Cookies and Third-Party Services</h2>
+            <p data-key="p-cookies">We embed YouTube videos on our website. Interacting with or playing these embedded videos may store third-party cookies or track viewing metrics directly via YouTube/Google under their respective privacy policies.</p>
+
+            <h2 data-key="h-rights">4. Your Data Rights</h2>
+            <p data-key="p-rights">Under European data protection laws (GDPR), you have the right to request access to, correction of, or deletion of any personal information or comments you have submitted. To request data removal, please contact us via the Contact page.</p>
+        </div>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('sideDrawer').classList.toggle('open');
+            document.getElementById('drawerOverlay').classList.toggle('active');
+        }
+
+        const translations = {
+            en: {
+                "nav-home": "Home",
+                "nav-articles": "Articles & News",
+                "nav-recipes": "Healthy Recipes",
+                "nav-calc": "Calculators",
+                "nav-contact": "Contact",
+                "nav-privacy": "Privacy Policy",
+                "title": "Privacy Policy",
+                "effective-date": "Last Updated: August 2026",
+                "h-intro": "1. Introduction",
+                "p-intro": "Welcome to Fitness 4 All. This website is a personal fitness blog focused on HYROX, CrossFit, and strength training content. We respect your privacy and are committed to protecting any personal data you share with us.",
+                "h-collect": "2. Information We Collect",
+                "li-1": "Contact Forms: When you send a message through our Contact page, we collect your name, email address, and message details solely to respond to your inquiry.",
+                "li-2": "Comments: When you post a comment on an article, we display your chosen display name and comment text publicly.",
+                "h-cookies": "3. Cookies and Third-Party Services",
+                "p-cookies": "We embed YouTube videos on our website. Interacting with or playing these embedded videos may store third-party cookies or track viewing metrics directly via YouTube/Google under their respective privacy policies.",
+                "h-rights": "4. Your Data Rights",
+                "p-rights": "Under European data protection laws (GDPR), you have the right to request access to, correction of, or deletion of any personal information or comments you have submitted. To request data removal, please contact us via the Contact page."
+            },
+            pt: {
+                "nav-home": "Início",
+                "nav-articles": "Artigos & Notícias",
+                "nav-recipes": "Receitas Saudáveis",
+                "nav-calc": "Calculadoras",
+                "nav-contact": "Contacto",
+                "nav-privacy": "Política de Privacidade",
+                "title": "Política de Privacidade",
+                "effective-date": "Última Atualização: Agosto de 2026",
+                "h-intro": "1. Introdução",
+                "p-intro": "Bem-vindo ao Fitness 4 All. Este website é um blogue pessoal focado em conteúdos de HYROX, CrossFit e treino de força. Respeitamos a sua privacidade e estamos comprometidos em proteger os dados pessoais que partilha connosco.",
+                "h-collect": "2. Informações que Recolhemos",
+                "li-1": "Formulários de Contacto: Ao enviar uma mensagem através da página de Contacto, recolhemos o seu nome, e-mail e mensagem apenas para responder ao seu contacto.",
+                "li-2": "Comentários: Ao publicar um comentário num artigo, apresentamos publicamente o nome de exibição escolhido e o texto do comentário.",
+                "h-cookies": "3. Cookies e Serviços de Terceiros",
+                "p-cookies": "Incorporamos vídeos do YouTube no nosso website. A interação ou reprodução destes vídeos pode armazenar cookies de terceiros ou rastrear métricas através do YouTube/Google.",
+                "h-rights": "4. Os Seus Direitos de Dados",
+                "p-rights": "Ao abrigo do Regulamento Geral sobre a Proteção de Dados (RGPD), tem o direito de solicitar o acesso, correção ou eliminação dos seus dados pessoais ou comentários. Para tal, entre em contacto connosco através da página de Contacto."
+            }
+        };
+
+        function switchLanguage(lang) {
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    elem.textContent = translations[lang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>

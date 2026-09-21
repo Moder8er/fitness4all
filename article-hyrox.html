@@ -1,0 +1,269 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is HYROX? The Ultimate Guide | Fitness 4 All</title>
+    <style>
+        :root {
+            --bg-dark: #0A111E;
+            --card-bg: #132238;
+            --accent-green: #00FF66;
+            --accent-blue: #00A3FF;
+            --accent-orange: #FF8800;
+            --text-main: #FFFFFF;
+            --text-muted: #94A3B8;
+            --border: #1E3A5F;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0; padding: 0;
+            line-height: 1.6;
+            display: flex; flex-direction: column; min-height: 100vh;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; flex: 1; width: 100%; box-sizing: border-box; }
+        header { border-bottom: 1px solid var(--border); padding: 15px 0; background-color: rgba(10, 17, 30, 0.9); }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 900; color: var(--accent-green); text-decoration: none; }
+        .logo span { color: var(--accent-blue); }
+
+        .hamburger-btn { background: none; border: none; color: var(--text-main); font-size: 1.8rem; cursor: pointer; padding: 0; }
+        .side-drawer { position: fixed; top: 0; right: -300px; width: 260px; height: 100%; background-color: var(--card-bg); border-left: 1px solid var(--border); box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5); z-index: 1000; display: flex; flex-direction: column; padding: 25px 20px; transition: right 0.3s ease-in-out; box-sizing: border-box; }
+        .side-drawer.open { right: 0; }
+        .drawer-header { display: flex; justify-content: flex-end; }
+        .close-btn { background: none; border: none; color: var(--text-muted); font-size: 2rem; cursor: pointer; padding: 0; }
+        .close-btn:hover { color: var(--accent-green); }
+        .drawer-nav { display: flex; flex-direction: column; gap: 20px; margin-top: 30px; }
+        .drawer-nav a { color: var(--text-main); text-decoration: none; font-size: 1.2rem; font-weight: 700; transition: color 0.2s; }
+        .drawer-nav a:hover, .drawer-nav a.active { color: var(--accent-green); }
+        .drawer-footer { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border); }
+        .lang-select { background: var(--bg-dark); color: var(--text-main); border: 1px solid var(--border); padding: 6px 10px; border-radius: 4px; cursor: pointer; width: 100%; }
+        .drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); display: none; z-index: 999; }
+        .drawer-overlay.active { display: block; }
+
+        .tag { padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; display: inline-block; }
+        .tag.hyrox { background: rgba(0, 255, 102, 0.15); color: var(--accent-green); }
+
+        .article-container { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 35px; margin: 40px 0; }
+        .article-hero-img { width: 100%; height: 400px; object-fit: cover; border-radius: 8px; margin-top: 20px; border: 1px solid var(--border); }
+        
+        h1 { font-size: 2.2rem; margin: 15px 0 10px 0; }
+        h2 { color: var(--accent-green); margin-top: 30px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+        
+        .station-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px; }
+        .station-card { background: var(--bg-dark); border: 1px solid var(--border); padding: 15px; border-radius: 6px; }
+        .station-num { color: var(--accent-blue); font-weight: bold; font-size: 0.85rem; }
+
+        .back-link { display: inline-block; margin-top: 20px; color: var(--accent-green); text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+
+        footer { border-top: 1px solid var(--border); padding: 30px 0; margin-top: 60px; background-color: var(--card-bg); text-align: center; font-size: 0.9rem; color: var(--text-muted); }
+        .footer-links { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-main); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--accent-green); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="./index.html" class="logo">FITNESS <span>4 ALL</span></a>
+            <button class="hamburger-btn" onclick="toggleMenu()" aria-label="Open Menu">☰</button>
+        </div>
+    </header>
+
+    <div class="side-drawer" id="sideDrawer">
+        <div class="drawer-header">
+            <button class="close-btn" onclick="toggleMenu()">&times;</button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="./index.html" data-key="nav-home">Home</a>
+            <a href="./articles.html" class="active" data-key="nav-articles">Articles & News</a>
+            <a href="./recipes.html" data-key="nav-recipes">Healthy Recipes</a>
+            <a href="./calculators.html" data-key="nav-calc">Calculators</a>
+            <a href="./contact.html" data-key="nav-contact">Contact</a>
+        </nav>
+        <div class="drawer-footer">
+            <select class="lang-select" onchange="switchLanguage(this.value)">
+                <option value="en">EN</option>
+                <option value="pt">PT</option>
+            </select>
+        </div>
+    </div>
+    <div class="drawer-overlay" id="drawerOverlay" onclick="toggleMenu()"></div>
+
+    <main class="container">
+        <a href="./index.html" class="back-link" data-key="back-btn">← Back to Home</a>
+        
+        <article class="article-container">
+            <span class="tag hyrox">HYROX</span>
+            <h1 data-key="art-title">What is HYROX? Origins, 8 Stations, Rules & Curiosities</h1>
+            <p style="color: var(--text-muted); font-size: 0.95rem;" data-key="art-meta">Published by Fitness 4 All • Reading time: 4 mins</p>
+
+            <!-- Updated Image -->
+            <img src="https://images.unsplash.com/photo-1757147517573-2521839225c8?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="HYROX Athlete Training" class="article-hero-img">
+
+            <h2 data-key="sec1-title">1. When and How Did HYROX Appear?</h2>
+            <p data-key="sec1-text">HYROX was founded in 2017 in Hamburg, Germany, by Christian Toetzke (an event industry veteran) and Moritz Fürste (a two-time Olympic Hockey Gold Medalist). They noticed that while millions of people train in functional gyms worldwide, there was no standardized global fitness race designed for everyone—combining accessible endurance running with functional workouts inside indoor arenas.</p>
+
+            <h2 data-key="sec2-title">2. The Official Format & The 8 Stations</h2>
+            <p data-key="sec2-text">Every HYROX event globally follows the exact same structure: <strong>8 x 1km runs</strong>, with 1 functional exercise station performed between each 1km run loop.</p>
+
+            <div class="station-grid">
+                <div class="station-card">
+                    <span class="station-num">STATION 1</span>
+                    <h4>1,000m SkiErg</h4>
+                    <p style="font-size:0.85rem; color: var(--text-muted);" data-key="st1-desc">Full-body endurance test targeting lats, core, and legs.</p>
+                </div>
+                <div class="station-card">
+                    <span class="station-num">STATION 2</span>
+                    <h4>50m Sled Push</h4>
+                    <p style="font-size:0.85rem; color: var(--text-muted);" data-key="st2-desc">Heavy leg drive challenge across carpet turf.</p>
+                </div>
+                <div class="station-card">
+                    <span class="station-num">STATION 3</span>
+                    <h4>50m Sled Pull</h4>
+                    <p style="font-size:0.85rem; color: var(--text-muted);" data-key="st3-desc">Posterior chain test pulling heavy loaded sleds with rope.</p>
+                </div>
+                <div class="station-card">
+                    <span class="station-num">STATION 4</span>
+                    <h4>80m Burpee Broad Jumps</h4>
+                    <p style="font-size:0.85rem; color: var(--text-muted);" data-key="st4-desc">High heart-rate mobility and explosive power test.</p>
+                </div>
+                <div class="station-card">
+                    <span class="station-num">STATION 5</span>
+                    <h4>1,000m Rowing</h4>
+                    <p style="font-size:0.85rem; color: var(--text-muted);" data-key="st5-desc">Cardiovascular pacing mastery on Concept2 rowers.</p>
+                </div>
+                <div class="station-card">
+                    <span class="station-num">STATION 6</span>
+                    <h4>200m Farmers Carry</h4>
+                    <p style="font-size:0.85rem; color: var(--text-muted);" data-key="st6-desc">Grip strength and core stability carrying heavy kettlebells.</p>
+                </div>
+                <div class="station-card">
+                    <span class="station-num">STATION 7</span>
+                    <h4>100m Sandbag Lunges</h4>
+                    <p style="font-size:0.85rem; color: var(--text-muted);" data-key="st7-desc">Unilateral leg strength carrying sandbags on shoulders.</p>
+                </div>
+                <div class="station-card">
+                    <span class="station-num">STATION 8</span>
+                    <h4>75 - 100 Wall Balls</h4>
+                    <p style="font-size:0.85rem; color: var(--text-muted);" data-key="st8-desc">Final leg & shoulder burner throwing medicine balls at target heights.</p>
+                </div>
+            </div>
+
+            <h2 data-key="sec3-title">3. Key Rules You Must Know</h2>
+            <ul>
+                <li data-key="rule1"><strong>Strict Standard Judgement:</strong> Every station is judged by referees. For example, Wall Balls require a full squat below parallel, or the repetition doesn't count.</li>
+                <li data-key="rule2"><strong>The Roxyzone:</strong> Athletes move through a central transition arena ("Roxyzone") to enter and exit workout stations between running laps.</li>
+                <li data-key="rule3"><strong>Universal Standardization:</strong> Weights and distances are identical anywhere in the world, allowing athletes to compare global rankings directly.</li>
+            </ul>
+
+            <h2 data-key="sec4-title">4. Curiosities & Fun Facts</h2>
+            <ul>
+                <li data-key="fact1"><strong>100% Finish Rate Design:</strong> Unlike extreme endurance races, HYROX has no time limit. Around 98% of all participants finish the race.</li>
+                <li data-key="fact2"><strong>CrossFit vs HYROX:</strong> HYROX contains no complex Olympic lifting or gymnastics (like muscle-ups), making it much more accessible for everyday gymgoers.</li>
+                <li data-key="fact3"><strong>Massive Growth:</strong> What started as a single event in Germany now hosts over 100,000 athletes annually across major cities worldwide.</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="./privacy.html" data-key="foot-privacy">Privacy Policy</a>
+            <a href="./contact.html" data-key="foot-contact">Contact</a>
+        </div>
+        <div style="margin-top: 12px; font-size: 0.8rem;" data-key="foot-copy">© 2026 Fitness 4 All. All rights reserved.</div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('sideDrawer').classList.toggle('open');
+            document.getElementById('drawerOverlay').classList.toggle('active');
+        }
+
+        const translations = {
+            en: {
+                "nav-home": "Home",
+                "nav-articles": "Articles & News",
+                "nav-recipes": "Healthy Recipes",
+                "nav-calc": "Calculators",
+                "nav-contact": "Contact",
+                "back-btn": "← Back to Home",
+                "art-title": "What is HYROX? Origins, 8 Stations, Rules & Curiosities",
+                "art-meta": "Published by Fitness 4 All • Reading time: 4 mins",
+                "sec1-title": "1. When and How Did HYROX Appear?",
+                "sec1-text": "HYROX was founded in 2017 in Hamburg, Germany, by Christian Toetzke (an event industry veteran) and Moritz Fürste (a two-time Olympic Hockey Gold Medalist). They noticed that while millions of people train in functional gyms worldwide, there was no standardized global fitness race designed for everyone—combining accessible endurance running with functional workouts inside indoor arenas.",
+                "sec2-title": "2. The Official Format & The 8 Stations",
+                "sec2-text": "Every HYROX event globally follows the exact same structure: 8 x 1km runs, with 1 functional exercise station performed between each 1km run loop.",
+                "st1-desc": "Full-body endurance test targeting lats, core, and legs.",
+                "st2-desc": "Heavy leg drive challenge across carpet turf.",
+                "st3-desc": "Posterior chain test pulling heavy loaded sleds with rope.",
+                "st4-desc": "High heart-rate mobility and explosive power test.",
+                "st5-desc": "Cardiovascular pacing mastery on Concept2 rowers.",
+                "st6-desc": "Grip strength and core stability carrying heavy kettlebells.",
+                "st7-desc": "Unilateral leg strength carrying sandbags on shoulders.",
+                "st8-desc": "Final leg & shoulder burner throwing medicine balls at target heights.",
+                "sec3-title": "3. Key Rules You Must Know",
+                "rule1": "Strict Standard Judgement: Every station is judged by referees. For example, Wall Balls require a full squat below parallel, or the repetition doesn't count.",
+                "rule2": "The Roxyzone: Athletes move through a central transition arena ('Roxyzone') to enter and exit workout stations between running laps.",
+                "rule3": "Universal Standardization: Weights and distances are identical anywhere in the world, allowing athletes to compare global rankings directly.",
+                "sec4-title": "4. Curiosities & Fun Facts",
+                "fact1": "100% Finish Rate Design: Unlike extreme endurance races, HYROX has no time limit. Around 98% of all participants finish the race.",
+                "fact2": "CrossFit vs HYROX: HYROX contains no complex Olympic lifting or gymnastics (like muscle-ups), making it much more accessible for everyday gymgoers.",
+                "fact3": "Massive Growth: What started as a single event in Germany now hosts over 100,000 athletes annually across major cities worldwide.",
+                "foot-privacy": "Privacy Policy",
+                "foot-contact": "Contact",
+                "foot-copy": "© 2026 Fitness 4 All. All rights reserved."
+            },
+            pt: {
+                "nav-home": "Início",
+                "nav-articles": "Artigos & Notícias",
+                "nav-recipes": "Receitas Saudáveis",
+                "nav-calc": "Calculadoras",
+                "nav-contact": "Contacto",
+                "back-btn": "← Voltar ao Início",
+                "art-title": "O que é o HYROX? Origens, 8 Estações, Regras e Curiosidades",
+                "art-meta": "Publicado por Fitness 4 All • Tempo de leitura: 4 min",
+                "sec1-title": "1. Quando e Como Surgiu o HYROX?",
+                "sec1-text": "O HYROX foi fundado em 2017 em Hamburgo, Alemanha, por Christian Toetzke e Moritz Fürste (bicampeão olímpico de hóquei). Perceberam que não existia uma competição global padronizada de fitness acessível a todos, combinando corrida de resistência com exercícios funcionais em pavimentos cobertos.",
+                "sec2-title": "2. O Formato Oficial & As 8 Estações",
+                "sec2-text": "Todos os eventos de HYROX no mundo seguem a mesma estrutura: 8 x 1km de corrida, intercalados com 1 estação de exercício funcional.",
+                "st1-desc": "Teste de resistência de corpo inteiro (dorsais, core e pernas).",
+                "st2-desc": "Desafio de força de pernas a empurrar o trenó no relvado sintético.",
+                "st3-desc": "Teste de cadeia posterior a puxar o trenó com corda.",
+                "st4-desc": "Teste de mobilidade e potência explosiva com ritmo cardíaco elevado.",
+                "st5-desc": "Domínio de ritmo cardiovascular em remos Concept2.",
+                "st6-desc": "Força de pega e estabilidade de core a carregar kettlebells pesados.",
+                "st7-desc": "Força unilateral de pernas a carregar sacos de areia nos ombros.",
+                "st8-desc": "Queima final de pernas e ombros a lançar bolas medicinais a alvos.",
+                "sec3-title": "3. Regras Principais que Deve Saber",
+                "rule1": "Julgamento Estrito: Todas as estações são avaliadas por juízes. Por exemplo, nos Wall Balls é necessário agachamento completo abaixo do paralelo.",
+                "rule2": "A Roxyzone: Área central de transição onde os atletas entram e saem das estações entre as voltas de corrida.",
+                "rule3": "Padronização Universal: Pesos e distâncias são idênticos em qualquer lugar do mundo, permitindo comparações diretas de rankings.",
+                "sec4-title": "4. Curiosidades e Fatos Divertidos",
+                "fact1": "Concebido para Terminar: Ao contrário de provas extremas, o HYROX não tem limite de tempo. Cerca de 98% dos participantes concluem a prova.",
+                "fact2": "CrossFit vs HYROX: O HYROX não tem levantamento olímpico complexo nem ginástica (como muscle-ups), tornando-o muito mais acessível.",
+                "fact3": "Crescimento Exponencial: Começou como um evento único na Alemanha e hoje acolhe mais de 100.000 atletas por ano pelo mundo.",
+                "foot-privacy": "Política de Privacidade",
+                "foot-contact": "Contacto",
+                "foot-copy": "© 2026 Fitness 4 All. Todos os direitos reservados."
+            }
+        };
+
+        function switchLanguage(lang) {
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    elem.textContent = translations[lang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
