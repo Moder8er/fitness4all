@@ -1,4 +1,3 @@
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,28 +5,179 @@ HTML
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Article - Fitness 4 All</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <!-- Marked.js Markdown Parser -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <!-- js-yaml Front Matter Parser -->
   <script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
+  <style>
+    :root {
+      --bg-dark: #121212;
+      --card-bg: #1e1e1e;
+      --accent-green: #00e676;
+      --text-main: #ffffff;
+      --text-muted: #b0b0b0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      background-color: var(--card-bg);
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--accent-green);
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      flex: 1;
+    }
+
+    .back-link {
+      color: var(--accent-green);
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .category-badge {
+      background: var(--accent-green);
+      color: #000;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.85rem;
+      display: inline-block;
+      text-transform: uppercase;
+    }
+
+    .article-title {
+      margin-top: 15px;
+      font-size: 2.2rem;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .article-date {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 25px;
+    }
+
+    .article-banner {
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 20px 0;
+      display: none;
+    }
+
+    .markdown-content {
+      color: #ddd;
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    .markdown-content h1, .markdown-content h2, .markdown-content h3 {
+      color: #fff;
+      margin-top: 30px;
+    }
+
+    .markdown-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .markdown-content th, .markdown-content td {
+      border: 1px solid #2a2a2a;
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    .markdown-content th {
+      background-color: #252525;
+      color: var(--accent-green);
+    }
+
+    footer {
+      background-color: var(--card-bg);
+      border-top: 1px solid #2a2a2a;
+      padding: 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 10px 0;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-green);
+    }
+  </style>
 </head>
-<body class="dark-theme">
-  <!-- Dynamic Article Container -->
-  <main class="container article-layout" style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
-    <a href="articles.html" style="color: var(--accent-green); text-decoration: none; font-weight: bold;">← Back to Articles</a>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">FITNESS 4 ALL</a>
+  </header>
+
+  <main class="container">
+    <a href="articles.html" class="back-link">← Back to Articles</a>
     
-    <div id="article-header" style="margin-top: 20px;">
-      <span id="article-category" style="background: var(--accent-green); color: #000; padding: 4px 12px; border-radius: 4px; font-weight: bold; font-size: 0.85rem;">...</span>
-      <h1 id="article-title" style="margin-top: 15px; color: #fff;">Loading Article...</h1>
-      <p id="article-date" style="color: #aaa; font-size: 0.9rem;">...</p>
+    <div id="article-header">
+      <span id="article-category" class="category-badge">...</span>
+      <h1 id="article-title" class="article-title">Loading Article...</h1>
+      <p id="article-date" class="article-date">...</p>
     </div>
 
-    <img id="article-banner" src="" alt="" style="width: 100%; border-radius: 8px; margin: 20px 0; display: none;">
+    <img id="article-banner" class="article-banner" src="" alt="Article Banner">
 
-    <div id="article-body" class="markdown-content" style="color: #ddd; line-height: 1.8; font-size: 1.1rem;"></div>
+    <div id="article-body" class="markdown-content"></div>
   </main>
+
+  <footer>
+    <ul class="footer-links">
+      <li><a href="Privacy Police.html">Privacy Policy</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p style="color: #666; font-size: 0.85rem; margin: 0;">© 2026 Fitness 4 All. All rights reserved.</p>
+  </footer>
 
   <script>
     async function loadArticle() {
@@ -44,13 +194,12 @@ HTML
         if (!response.ok) throw new Error("File not found");
         const rawMarkdown = await response.text();
 
-        // Extract Front Matter (YAML header) and Markdown body
+        // Separate YAML front matter and body
         const parts = rawMarkdown.split('---');
         if (parts.length >= 3) {
           const frontMatter = jsyaml.load(parts[1]);
           const markdownBody = parts.slice(2).join('---');
 
-          // Render metadata
           document.getElementById('article-title').innerText = frontMatter.title || 'Untitled';
           document.title = `${frontMatter.title} - Fitness 4 All`;
           document.getElementById('article-category').innerText = frontMatter.category || 'Fitness';
@@ -66,14 +215,13 @@ HTML
             img.style.display = 'block';
           }
 
-          // Render Markdown content
           document.getElementById('article-body').innerHTML = marked.parse(markdownBody);
         } else {
           document.getElementById('article-body').innerHTML = marked.parse(rawMarkdown);
         }
       } catch (err) {
         document.getElementById('article-title').innerText = "Error Loading Article";
-        document.getElementById('article-body').innerHTML = "<p>Could not load the requested article.</p>";
+        document.getElementById('article-body').innerHTML = "<p>Could not find or load the specified article file.</p>";
       }
     }
 
