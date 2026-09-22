@@ -350,7 +350,7 @@
       justify-content: center;
       gap: 20px;
       list-style: none;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     .footer-links a {
@@ -361,6 +361,14 @@
 
     .footer-links a:hover {
       color: var(--accent-green);
+    }
+
+    .disclaimer-text {
+      color: #777;
+      font-size: 0.75rem;
+      max-width: 650px;
+      margin: 0 auto 15px auto;
+      line-height: 1.4;
     }
 
     @media (max-width: 900px) {
@@ -401,7 +409,7 @@
 
     <!-- Top Hero Row -->
     <div class="hero-grid">
-      <!-- Main Hero Card (Your NEW Decap CMS Post) -->
+      <!-- Main Hero Card (Decap CMS Post) -->
       <a href="article.html?file=finding-the-perfect-sole-the-ultimate-hyrox-footwear-review" class="card hero-card">
         <div>
           <span class="badge badge-hyrox">HYROX</span>
@@ -459,9 +467,9 @@
 
           <!-- Event Category Filter Buttons -->
           <div class="event-filters">
-            <button class="filter-btn active" onclick="filterEvents('all')">All</button>
-            <button class="filter-btn" onclick="filterEvents('hyrox')">HYROX</button>
-            <button class="filter-btn" onclick="filterEvents('crossfit')">CrossFit</button>
+            <button class="filter-btn active" onclick="filterEvents(event, 'all')">All</button>
+            <button class="filter-btn" onclick="filterEvents(event, 'hyrox')">HYROX</button>
+            <button class="filter-btn" onclick="filterEvents(event, 'crossfit')">CrossFit</button>
           </div>
 
           <div id="events-list">
@@ -510,6 +518,12 @@
       <li><a href="Privacy Police.html" data-key="footer-privacy">Privacy Policy</a></li>
       <li><a href="contact.html" data-key="footer-contact">Contact</a></li>
     </ul>
+
+    <!-- Disclaimer Notice -->
+    <p class="disclaimer-text">
+      <em data-key="disclaimer-text"><strong>Disclaimer:</strong> Content on Fitness 4 All is for informational purposes only and reflects personal opinions and independent research. It is not professional or medical advice. Always consult a qualified professional before starting any new training or nutrition plan.</em>
+    </p>
+
     <p style="color: #666; font-size: 0.85rem;">© 2026 Fitness 4 All. All rights reserved.</p>
   </footer>
 
@@ -536,11 +550,11 @@
     overlay.addEventListener('click', closeMenu);
 
     // Interactive Event Filter Function
-    function filterEvents(category) {
+    function filterEvents(evt, category) {
       const buttons = document.querySelectorAll('.filter-btn');
       buttons.forEach(btn => btn.classList.remove('active'));
       
-      event.target.classList.add('active');
+      evt.target.classList.add('active');
 
       const items = document.querySelectorAll('.event-item');
       items.forEach(item => {
@@ -576,7 +590,8 @@
         "hero-title": "What is HYROX? Origins, 8 Stations, Rules & Curiosities",
         "hero-summary": "How saving 5 seconds per station can shave minutes off your overall finish time.",
         "footer-privacy": "Privacy Policy",
-        "footer-contact": "Contact"
+        "footer-contact": "Contact",
+        "disclaimer-text": "Disclaimer: Content on Fitness 4 All is for informational purposes only and reflects personal opinions and independent research. It is not professional or medical advice. Always consult a qualified professional before starting any new training or nutrition plan."
       },
       pt: {
         "nav-home": "Início",
@@ -589,7 +604,8 @@
         "hero-title": "O que é HYROX? Origens, 8 Estações, Regras e Curiosidades",
         "hero-summary": "Como poupar 5 segundos por estação pode diminuir minutos no seu tempo final.",
         "footer-privacy": "Política de Privacidade",
-        "footer-contact": "Contacto"
+        "footer-contact": "Contacto",
+        "disclaimer-text": "Aviso Legal: O conteúdo do Fitness 4 All destina-se apenas a fins informativos e reflete opiniões pessoais e pesquisas independentes. Não substitui aconselhamento médico ou profissional. Consulte sempre um profissional antes de iniciar qualquer plano de treino."
       }
     };
 
