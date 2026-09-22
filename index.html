@@ -235,7 +235,7 @@
       margin-bottom: 20px;
     }
 
-    /* Events Widget */
+    /* Interactive Events Widget */
     .events-widget {
       background-color: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -247,7 +247,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .events-header h3 {
@@ -258,12 +258,40 @@
       gap: 8px;
     }
 
+    .event-filters {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .filter-btn {
+      background: #1f2937;
+      border: 1px solid #374151;
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .filter-btn.active {
+      background: var(--accent-green);
+      color: #000;
+      border-color: var(--accent-green);
+    }
+
     .event-item {
       background: rgba(255,255,255,0.02);
       border: 1px solid var(--card-border);
       border-radius: 8px;
       padding: 15px;
       margin-bottom: 12px;
+      transition: border-color 0.2s;
+    }
+
+    .event-item:hover {
+      border-color: #374151;
     }
 
     .event-meta {
@@ -275,7 +303,7 @@
 
     .event-date {
       font-size: 0.75rem;
-      color: var(--text-muted);
+      color: var(--accent-green);
       font-weight: bold;
     }
 
@@ -289,14 +317,23 @@
     .event-location {
       font-size: 0.8rem;
       color: var(--text-muted);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .event-link {
-      color: var(--accent-green);
-      font-size: 0.85rem;
-      font-weight: bold;
+    .ticket-btn {
+      display: inline-block;
+      background-color: var(--accent-green);
+      color: #000;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 800;
       text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .ticket-btn:hover {
+      opacity: 0.9;
     }
 
     /* Footer */
@@ -413,32 +450,53 @@
         </div>
       </div>
 
-      <!-- Right Column: Upcoming Events -->
+      <!-- Right Column: Interactive Upcoming Events Calendar Widget -->
       <div>
         <div class="events-widget">
           <div class="events-header">
             <h3>📅 <span data-key="upcoming-events">Upcoming Events</span></h3>
-            <span style="font-size: 0.8rem; color: var(--text-muted);">Europe</span>
           </div>
 
-          <div class="event-item">
-            <div class="event-meta">
-              <span class="badge badge-hyrox" style="margin:0; padding: 2px 6px;">HYROX</span>
-              <span class="event-date">OCT 10–12</span>
-            </div>
-            <div class="event-title">HYROX Amsterdam</div>
-            <div class="event-location">📍 RAI Amsterdam, Netherlands</div>
-            <a href="https://hyrox.com" target="_blank" class="event-link">Buy Tickets →</a>
+          <!-- Event Category Filter Buttons -->
+          <div class="event-filters">
+            <button class="filter-btn active" onclick="filterEvents('all')">All</button>
+            <button class="filter-btn" onclick="filterEvents('hyrox')">HYROX</button>
+            <button class="filter-btn" onclick="filterEvents('crossfit')">CrossFit</button>
           </div>
 
-          <div class="event-item">
-            <div class="event-meta">
-              <span class="badge badge-crossfit" style="margin:0; padding: 2px 6px;">CROSSFIT</span>
-              <span class="event-date">NOV 06–08</span>
+          <div id="events-list">
+            <!-- Event Item 1 -->
+            <div class="event-item" data-category="hyrox">
+              <div class="event-meta">
+                <span class="badge badge-hyrox" style="margin:0; padding: 2px 6px;">HYROX</span>
+                <span class="event-date">OCT 10–12, 2026</span>
+              </div>
+              <div class="event-title">HYROX Amsterdam</div>
+              <div class="event-location">📍 RAI Amsterdam, Netherlands</div>
+              <a href="https://hyrox.com/event/hyrox-amsterdam/" target="_blank" rel="noopener" class="ticket-btn">Buy Tickets →</a>
             </div>
-            <div class="event-title">German Throwdown '26</div>
-            <div class="event-location">📍 Halle 45, Mainz, Germany</div>
-            <a href="#" class="event-link">Buy Tickets →</a>
+
+            <!-- Event Item 2 -->
+            <div class="event-item" data-category="crossfit">
+              <div class="event-meta">
+                <span class="badge badge-crossfit" style="margin:0; padding: 2px 6px;">CROSSFIT</span>
+                <span class="event-date">NOV 06–08, 2026</span>
+              </div>
+              <div class="event-title">German Throwdown '26</div>
+              <div class="event-location">📍 Halle 45, Mainz, Germany</div>
+              <a href="https://germanthrowdown.de" target="_blank" rel="noopener" class="ticket-btn">Buy Tickets →</a>
+            </div>
+
+            <!-- Event Item 3 -->
+            <div class="event-item" data-category="hyrox">
+              <div class="event-meta">
+                <span class="badge badge-hyrox" style="margin:0; padding: 2px 6px;">HYROX</span>
+                <span class="event-date">DEC 04–06, 2026</span>
+              </div>
+              <div class="event-title">HYROX Madrid</div>
+              <div class="event-location">📍 IFEMA, Madrid, Spain</div>
+              <a href="https://hyrox.com/event/hyrox-madrid/" target="_blank" rel="noopener" class="ticket-btn">Buy Tickets →</a>
+            </div>
           </div>
         </div>
       </div>
@@ -477,7 +535,24 @@
     menuClose.addEventListener('click', closeMenu);
     overlay.addEventListener('click', closeMenu);
 
-    // Identity Redirect
+    // Interactive Event Filter Function
+    function filterEvents(category) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      
+      event.target.classList.add('active');
+
+      const items = document.querySelectorAll('.event-item');
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Netlify Identity Auto-Redirect
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
