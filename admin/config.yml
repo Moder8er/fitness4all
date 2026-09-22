@@ -1,7 +1,6 @@
-YAML
 backend:
   name: git-gateway
-  branch: main # change to 'master' if your repo default branch is named master
+  branch: main
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
