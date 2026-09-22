@@ -341,7 +341,7 @@
       opacity: 0.9;
     }
 
-    /* --- ADDITION 1: Athlete Essentials (Products Grid) --- */
+    /* Athlete Essentials (Products Grid) */
     .essentials-section {
       margin-bottom: 45px;
     }
@@ -370,7 +370,6 @@
     }
 
     .product-tag {
-      color: var(--accent-green);
       font-size: 0.8rem;
       font-weight: bold;
     }
@@ -395,7 +394,7 @@
       color: var(--accent-green);
     }
 
-    /* --- ADDITION 2: Pace Estimator Widget --- */
+    /* Pace Estimator Widget */
     .tool-spotlight {
       background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
       border: 1px solid var(--card-border);
@@ -440,16 +439,9 @@
       margin-top: 15px;
     }
 
-    /* --- ADDITION 4: Standards & Swipe Exercise Cards --- */
+    /* Standards & Swipe Exercise Cards */
     .benchmarks-section {
       margin-bottom: 45px;
-    }
-
-    .benchmarks-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-bottom: 30px;
     }
 
     .standards-table {
@@ -459,6 +451,7 @@
       border-radius: 10px;
       overflow: hidden;
       border: 1px solid var(--card-border);
+      margin-bottom: 25px;
     }
 
     .standards-table th, .standards-table td {
@@ -474,11 +467,6 @@
     }
 
     /* Swipeable exercise carousel */
-    .exercise-carousel-wrapper {
-      position: relative;
-      margin-top: 15px;
-    }
-
     .exercise-carousel {
       display: flex;
       gap: 15px;
@@ -490,8 +478,8 @@
     }
 
     .exercise-card {
-      min-width: 240px;
-      max-width: 240px;
+      min-width: 230px;
+      max-width: 230px;
       scroll-snap-align: start;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -512,7 +500,7 @@
 
     .exercise-img {
       width: 100%;
-      height: 130px;
+      height: 120px;
       background-color: #1f2937;
       border-radius: 8px;
       display: flex;
@@ -575,7 +563,7 @@
     }
 
     @media (max-width: 900px) {
-      .hero-grid, .content-grid, .benchmarks-grid {
+      .hero-grid, .content-grid {
         grid-template-columns: 1fr;
       }
       .headlines-grid {
@@ -637,7 +625,7 @@
       </div>
     </div>
 
-    <!-- ADDITION 2: Interactive HYROX Race Time Estimator -->
+    <!-- Interactive HYROX Race Time Estimator -->
     <section class="tool-spotlight">
       <h2 class="section-heading" style="margin: 0;">⚡ <span data-key="tool-title">Interactive Tool: HYROX Finish Estimator</span></h2>
       <p style="color: var(--text-muted); margin-top: 5px;">Enter your current 5 km outdoor run time to estimate your HYROX race finish window.</p>
@@ -726,124 +714,129 @@
       </div>
     </div>
 
-    <!-- ADDITION 4: Training Standards & Swipeable Exercise Library -->
+    <!-- Multi-Discipline Benchmarks & Swipeable Exercise Library -->
     <section class="benchmarks-section">
-      <h2 class="section-heading">📊 <span data-key="standards-title">Target Finish Benchmarks & Exercise Library</span></h2>
+      <h2 class="section-heading">📊 <span data-key="standards-title">Performance Standards & Movement Library</span></h2>
       
-      <div class="benchmarks-grid">
-        <!-- Target Finish Times Table -->
-        <div>
-          <table class="standards-table">
-            <thead>
-              <tr>
-                <th>Level</th>
-                <th>HYROX Open Men</th>
-                <th>HYROX Open Women</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Pro / Elite</strong></td>
-                <td>&lt; 1h 05m</td>
-                <td>&lt; 1h 10m</td>
-              </tr>
-              <tr>
-                <td><strong>Intermediate</strong></td>
-                <td>1h 15m – 1h 25m</td>
-                <td>1h 25m – 1h 35m</td>
-              </tr>
-              <tr>
-                <td><strong>Finisher</strong></td>
-                <td>1h 30m – 1h 45m</td>
-                <td>1h 40m – 1h 55m</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Exercise Description Note -->
-        <div style="background: var(--card-bg); padding: 20px; border-radius: 10px; border: 1px solid var(--card-border);">
-          <h3 style="color: #fff; margin-bottom: 10px;">Swipe & Learn Movement Mechanics</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Swipe left/right on the exercise cards below to review primary target muscle groups and station execution techniques for hybrid racing.</p>
-        </div>
-      </div>
+      <!-- Multi-Discipline Targets Table -->
+      <table class="standards-table">
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>HYROX Finish (Men/Women)</th>
+            <th>CrossFit Benchmarks</th>
+            <th>Gym Strength Targets</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Advanced / Pro</strong></td>
+            <td>&lt; 1h 08m / &lt; 1h 15m</td>
+            <td>Fran &lt; 3:00 | Murph &lt; 38:00</td>
+            <td>Squat 2.0x BW | Bench 1.5x BW</td>
+          </tr>
+          <tr>
+            <td><strong>Intermediate</strong></td>
+            <td>1h 18m / 1h 28m</td>
+            <td>Fran 4:30 | Murph 45:00</td>
+            <td>Squat 1.5x BW | Bench 1.1x BW</td>
+          </tr>
+          <tr>
+            <td><strong>Finisher / Beginner</strong></td>
+            <td>1h 35m / 1h 45m</td>
+            <td>Fran &lt; 7:00 | Murph &lt; 60:00</td>
+            <td>Squat 1.0x BW | Bench 0.8x BW</td>
+          </tr>
+        </tbody>
+      </table>
 
       <!-- Swipeable Exercise Cards Carousel -->
-      <div class="exercise-carousel-wrapper">
-        <div class="exercise-carousel">
+      <div class="exercise-carousel">
 
-          <!-- Exercise Card 1 -->
-          <a href="article.html?file=what-is-hyrox" class="exercise-card">
-            <div class="exercise-img">🛷</div>
-            <div class="exercise-name">Sled Push</div>
-            <span class="muscle-badge">Quads & Glutes</span>
-          </a>
+        <!-- HYROX Exercise -->
+        <a href="article.html?file=what-is-hyrox" class="exercise-card">
+          <div class="exercise-img">🛷</div>
+          <span class="badge badge-hyrox" style="margin:0; padding: 2px 6px;">HYROX</span>
+          <div class="exercise-name" style="margin-top: 5px;">Sled Push</div>
+          <span class="muscle-badge">Quads & Glutes</span>
+        </a>
 
-          <!-- Exercise Card 2 -->
-          <a href="article.html?file=what-is-hyrox" class="exercise-card">
-            <div class="exercise-img">🎿</div>
-            <div class="exercise-name">SkiErg (1000m)</div>
-            <span class="muscle-badge">Lats & Core</span>
-          </a>
+        <!-- Gym Exercise 1 -->
+        <a href="article.html?file=5-mistakes-bench-press" class="exercise-card">
+          <div class="exercise-img">🏋️‍♂️</div>
+          <span class="badge badge-gym" style="margin:0; padding: 2px 6px;">GYM</span>
+          <div class="exercise-name" style="margin-top: 5px;">Barbell Bench Press</div>
+          <span class="muscle-badge">Chest & Triceps</span>
+        </a>
 
-          <!-- Exercise Card 3 -->
-          <a href="article.html?file=what-is-hyrox" class="exercise-card">
-            <div class="exercise-img">🪨</div>
-            <div class="exercise-name">Sandbag Lunges</div>
-            <span class="muscle-badge">Hamstrings & Core</span>
-          </a>
+        <!-- CrossFit Exercise 1 -->
+        <a href="article.html?file=open-workout-strategy" class="exercise-card">
+          <div class="exercise-img">🦋</div>
+          <span class="badge badge-crossfit" style="margin:0; padding: 2px 6px;">CROSSFIT</span>
+          <div class="exercise-name" style="margin-top: 5px;">Butterfly Pull-Ups</div>
+          <span class="muscle-badge">Lats & Grip</span>
+        </a>
 
-          <!-- Exercise Card 4 -->
-          <a href="article.html?file=what-is-hyrox" class="exercise-card">
-            <div class="exercise-img">⚽</div>
-            <div class="exercise-name">Wall Balls</div>
-            <span class="muscle-badge">Quads & Shoulders</span>
-          </a>
+        <!-- Gym Exercise 2 -->
+        <a href="article.html?file=hypertrophy-vs-powerlifting" class="exercise-card">
+          <div class="exercise-img">🦵</div>
+          <span class="badge badge-gym" style="margin:0; padding: 2px 6px;">GYM</span>
+          <div class="exercise-name" style="margin-top: 5px;">Barbell Back Squat</div>
+          <span class="muscle-badge">Quads & Core</span>
+        </a>
 
-          <!-- Exercise Card 5 -->
-          <a href="article.html?file=5-mistakes-bench-press" class="exercise-card">
-            <div class="exercise-img">🏋️‍♂️</div>
-            <div class="exercise-name">Barbell Bench Press</div>
-            <span class="muscle-badge">Pectorals & Triceps</span>
-          </a>
+        <!-- CrossFit Exercise 2 -->
+        <a href="article.html?file=open-workout-strategy" class="exercise-card">
+          <div class="exercise-img">🦶</div>
+          <span class="badge badge-crossfit" style="margin:0; padding: 2px 6px;">CROSSFIT</span>
+          <div class="exercise-name" style="margin-top: 5px;">Toes to Bar (T2B)</div>
+          <span class="muscle-badge">Abs & Grip</span>
+        </a>
 
-        </div>
+        <!-- Gym Exercise 3 -->
+        <a href="article.html?file=hypertrophy-vs-powerlifting" class="exercise-card">
+          <div class="exercise-img">⚡</div>
+          <span class="badge badge-gym" style="margin:0; padding: 2px 6px;">GYM</span>
+          <div class="exercise-name" style="margin-top: 5px;">Romanian Deadlift</div>
+          <span class="muscle-badge">Hamstrings & Back</span>
+        </a>
+
       </div>
     </section>
 
-    <!-- ADDITION 1: Recommended Gear & Supplements Showcase -->
+    <!-- Multi-Discipline Athlete Essentials & Gear -->
     <section class="essentials-section">
-      <h2 class="section-heading">👟 <span data-key="gear-title">Athlete Essentials & Tested Gear</span></h2>
+      <h2 class="section-heading">👟 <span data-key="gear-title">Tested Athlete Gear & Recommendations</span></h2>
       
       <div class="products-grid">
-        <!-- Product 1 -->
+        <!-- Product 1: HYROX -->
         <div class="product-card">
           <div>
-            <span class="product-tag">FOOTWEAR</span>
+            <span class="product-tag" style="color: var(--accent-green);">HYROX FOOTWEAR</span>
             <div class="product-title">Puma Deviate Nitro 3</div>
-            <p style="color: var(--text-muted); font-size: 0.85rem;">Top-rated turf grip for sled pushes and cushioned carbon-plate run response.</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">Turf grip for sled pushes and cushioned carbon-plate run response.</p>
           </div>
-          <a href="article.html?file=finding-the-perfect-sole-the-ultimate-hyrox-footwear-review" class="product-btn">Read Full Review →</a>
+          <a href="article.html?file=finding-the-perfect-sole-the-ultimate-hyrox-footwear-review" class="product-btn">Read Footwear Review →</a>
         </div>
 
-        <!-- Product 2 -->
+        <!-- Product 2: CrossFit -->
         <div class="product-card">
           <div>
-            <span class="product-tag">HYDRATION</span>
-            <div class="product-title">Electrolyte Powder Matrix</div>
-            <p style="color: var(--text-muted); font-size: 0.85rem;">Sodium and magnesium complex designed to prevent cramping during station runs.</p>
+            <span class="product-tag" style="color: var(--accent-blue);">CROSSFIT GEAR</span>
+            <div class="product-title">Fingerless Gymnastic Grips</div>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">Chalk-compatible palm protection for high-rep pull-ups and muscle-ups.</p>
           </div>
-          <a href="contact.html" class="product-btn">Recommended Brands →</a>
+          <a href="contact.html" class="product-btn">Recommended Grips →</a>
         </div>
 
-        <!-- Product 3 -->
+        <!-- Product 3: Gym / Powerlifting -->
         <div class="product-card">
           <div>
-            <span class="product-tag">GRIP & PROTECTION</span>
-            <div class="product-title">Neoprene Knee Sleeves (7mm)</div>
-            <p style="color: var(--text-muted); font-size: 0.85rem;">Maximum joint warmth and stability for heavy sled pushes and wall ball reps.</p>
+            <span class="product-tag" style="color: var(--accent-orange);">GYM & STRENGTH</span>
+            <div class="product-title">7mm Neoprene Knee Sleeves</div>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">Maximum joint warmth and rebound support for heavy squats and wall balls.</p>
           </div>
-          <a href="contact.html" class="product-btn">Recommended Gear →</a>
+          <a href="contact.html" class="product-btn">Recommended Sleeves →</a>
         </div>
       </div>
     </section>
@@ -915,7 +908,6 @@
         return;
       }
 
-      // Formula: Estimated race time is approximately (5km pace * 8.5) + station overhead
       const estMin = Math.round((runTime * 2.8) + 35);
       const estMax = estMin + 12;
 
@@ -948,8 +940,8 @@
         "hero-summary": "How saving 5 seconds per station can shave minutes off your overall finish time.",
         "tool-title": "Interactive Tool: HYROX Finish Estimator",
         "tool-btn": "Estimate Finish Time",
-        "standards-title": "Target Finish Benchmarks & Exercise Library",
-        "gear-title": "Athlete Essentials & Tested Gear",
+        "standards-title": "Performance Standards & Movement Library",
+        "gear-title": "Tested Athlete Gear & Recommendations",
         "footer-privacy": "Privacy Policy",
         "footer-contact": "Contact",
         "disclaimer-text": "Disclaimer: Content on Fitness 4 All is for informational purposes only and reflects personal opinions and independent research. It is not professional or medical advice. Always consult a qualified professional before starting any new training or nutrition plan."
@@ -966,8 +958,8 @@
         "hero-summary": "Como poupar 5 segundos por estação pode diminuir minutos no seu tempo final.",
         "tool-title": "Ferramenta Interativa: Estimador de Tempo HYROX",
         "tool-btn": "Estimar Tempo de Prova",
-        "standards-title": "Tempos de Referência e Biblioteca de Exercícios",
-        "gear-title": "Equipamento Essencial e Recomendado",
+        "standards-title": "Padrões de Rendimento e Biblioteca de Movimentos",
+        "gear-title": "Equipamento Recomendado e Testado",
         "footer-privacy": "Política de Privacidade",
         "footer-contact": "Contacto",
         "disclaimer-text": "Aviso Legal: O conteúdo do Fitness 4 All destina-se apenas a fins informativos e reflete opiniões pessoais e pesquisas independentes. Não substitui aconselhamento médico ou profissional. Consulte sempre um profissional antes de iniciar qualquer plano de treino."
